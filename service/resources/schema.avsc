@@ -1,0 +1,208 @@
+{
+  "connect.name": "br.com.cogna.BusinessOfferingFinancialContractValue",
+  "doc": "{\"description\":Esse evento representa o retorno do processo de criação de uma cotação financeira.\",\"topic\":\"business-offering-financial-contract\",\"author_team\":\"Stream Team\",\"author_name\":\"Stream Team\",\"author_email\":\"streamteam@cogna.com.br\",\"support_name\":\"Stream Team\",\"support_phone\":\"---\",\"support_email\":\"streamteam@cogna.com.br\",\"schema_context\":\"br.com.kroton\"}",
+  "fields": [
+    {
+      "doc": "Id de Registro",
+      "name": "idRegister",
+      "type": "string"
+    },
+    {
+      "doc": "Id de Transacao",
+      "name": "idTransaction",
+      "type": "string"
+    },
+    {
+      "doc": "Sistema de origem",
+      "name": "system",
+      "type": "string"
+    },
+    {
+      "doc": "Codigo de retorno do processamento - Enum: 'SUCCESS', 'ERROR'",
+      "name": "statusCode",
+      "type": {
+        "name": "statusCodeEnum",
+        "symbols": [
+          "SUCCESS",
+          "ERROR"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "doc": "Mensagem de retorno do processamento ",
+      "name": "message",
+      "type": "string"
+    },
+    {
+      "default": null,
+      "doc": "CPF do aluno",
+      "name": "contactBusinessKey",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "doc": "Business Key da inscrição",
+      "name": "applicationBusinessKey",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "doc": "Número do BP gerado pelo SAP",
+      "name": "contactBusinessPartner",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "doc": "Número da conta contrato",
+      "name": "contractAccount",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "doc": "Número da cotação",
+      "name": "quotationBusinessKey",
+      "type": "string"
+    },
+    {
+      "doc": "Referência de Pagamento",
+      "name": "paymentReference",
+      "type": "string"
+    },
+    {
+      "doc": "Data de início da vigência da cotação",
+      "name": "validFrom",
+      "type": {
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "connect.version": 1,
+        "logicalType": "date",
+        "type": "int"
+      }
+    },
+    {
+      "doc": "Data de término da vigência da cotação",
+      "name": "validTo",
+      "type": {
+        "connect.name": "org.apache.kafka.connect.data.Date",
+        "connect.version": 1,
+        "logicalType": "date",
+        "type": "int"
+      }
+    },
+    {
+      "doc": "Valor do semestre",
+      "name": "semesterValue",
+      "type": "double"
+    },
+    {
+      "doc": "Valor da mensalidade",
+      "name": "baseValue",
+      "type": "double"
+    },
+    {
+      "name": "scholarship",
+      "type": {
+        "items": {
+          "fields": [
+            {
+              "doc": "Código da bolsa",
+              "name": "code",
+              "type": "string"
+            },
+            {
+              "doc": "Parcela Até",
+              "name": "installmentTo",
+              "type": "int"
+            },
+            {
+              "doc": "Parcela De",
+              "name": "installmentFrom",
+              "type": "int"
+            },
+            {
+              "doc": "Até o fim do curso",
+              "name": "untilEndProgram",
+              "type": "boolean"
+            }
+          ],
+          "name": "scholarship",
+          "type": "record"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "name": "installments",
+      "type": {
+        "items": {
+          "fields": [
+            {
+              "doc": "Número da parcela",
+              "name": "installment",
+              "type": "string"
+            },
+            {
+              "doc": "Valor da parcela",
+              "name": "netValue",
+              "type": "double"
+            },
+            {
+              "doc": "Valor do desconto de pontualidade",
+              "name": "ponctualityDiscountValue",
+              "type": "double"
+            },
+            {
+              "doc": "Tipo da bolsa",
+              "name": "scholarshipType",
+              "type": "string"
+            },
+            {
+              "doc": "Valor a pagar com desconto pontualidade",
+              "name": "ponctualityDiscountNetValue",
+              "type": "string"
+            },
+            {
+              "name": "scholarshipApplied",
+              "type": {
+                "items": {
+                  "fields": [
+                    {
+                      "doc": "Código da bolsa",
+                      "name": "code",
+                      "type": "string"
+                    },
+                    {
+                      "doc": "Valor da bolsa aplica",
+                      "name": "value",
+                      "type": "double"
+                    }
+                  ],
+                  "name": "scholarshipApplied",
+                  "type": "record"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "name": "installments",
+          "type": "record"
+        },
+        "type": "array"
+      }
+    }
+  ],
+  "name": "BusinessOfferingFinancialContractValue",
+  "namespace": "br.com.kroton",
+  "type": "record"
+}

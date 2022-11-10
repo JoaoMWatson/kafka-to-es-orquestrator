@@ -1,0 +1,8 @@
+CC_TOPIC_PRODUCE="business-offering-financial-contract"
+CC_TOPIC_CONSUME="business-offering-contract-created-processed"
+CC_BROKER="pkc-gkkom.eastus.azure.confluent.cloud:9092"
+CC_GROUPID="joao-test-python001"
+SR_URL="https://psrc-gq7pv.westus2.azure.confluent.cloud"
+ES_HOST="elk-backbone-us-dev.es.eastus.azure.elastic-cloud.com"
+ES_PORT=9243
+ES_INDEX="financial-business-offer"
